@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="robots" content="noindex, nofollow">
+<title>Lebanese menu: mezze, grill and wine | OCCO Malmö</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap">
+<style>
+html,body{margin:0;padding:0;background:#0A0A0A;-webkit-font-smoothing:antialiased;}
+*{box-sizing:border-box;}
+a{color:inherit;}
+a:hover{color:#C09070;}
+</style>
+</helmet>
+
+<div style="width:100%;overflow-x:hidden;font-family:'Instrument Sans',sans-serif;color:#111111;">
+
+<sc-if value="{{ pubDesk }}" hint-placeholder-val="{{ true }}">
+<div style="width:1440px;margin:0 auto;zoom:{{ pubZoomD }};">
+<main data-screen-label="03 Menu desktop" style="width:1440px;background:#0A0A0A;color:#F2F0EB;">
+  <div style="width:100%;height:40px;padding:0 48px;background:#141414;border-bottom:1px solid #262626;display:flex;align-items:center;justify-content:center;font-family:'Instrument Sans',sans-serif;font-size:15px;line-height:22px;letter-spacing:0.01em;color:#A6A6A6;text-align:center;">Concept for OCCO Dinner Club. Not the live website; dates and some texts are examples.</div>
+  <dc-import name="Nav" tone="dark" current="Menu" hint-size="1440px,88px"></dc-import>
+
+  <section style="padding:96px 0 144px;">
+    <div style="display:grid;grid-template-columns:repeat(12,90px);column-gap:24px;padding:0 48px;align-items:start;">
+      <div style="grid-column:1 / 9;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;margin-bottom:24px;"><a href="Home.dc.html" style="color:#8C8C8C;text-decoration:none;" style-hover="color:#C09070;">Home</a> / Menu</div>
+      <h1 style="grid-column:1 / 9;grid-row:2;margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:88px;line-height:88px;letter-spacing:-0.025em;">Lebanese menu:<br>mezze, grill and wine</h1>
+      <img src="assets/mezze_bord.jpg" alt="Mezze on a table at OCCO" style="grid-column:10 / 13;grid-row:2 / 4;width:318px;height:398px;object-fit:cover;display:block;">
+      <div style="grid-column:1 / 6;grid-row:3;margin-top:48px;">
+        <p style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:28px;line-height:38px;text-wrap:pretty;">Every dish at OCCO in Malmö, made for sharing. Prices in SEK. Tell us about allergies when you book.</p>
+        <p style="margin:24px 0 0;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;">G gluten, L lactose, N nuts, V vegetarian, VG vegan</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:48px 0 192px;">
+    <div style="display:grid;grid-template-columns:repeat(12,90px);column-gap:24px;padding:0 48px;align-items:start;">
+      <nav style="grid-column:1 / 3;position:sticky;top:120px;display:flex;flex-direction:column;gap:8px;font-size:15px;letter-spacing:0.01em;line-height:22px;font-weight:500;">
+        <sc-for list="{{ indexA }}" as="i" hint-placeholder-count="9">
+          <a href="{{ i.href }}" style="align-self:flex-start;color:#F2F0EB;text-decoration:{{ i.deco }};text-decoration-color:#C09070;text-decoration-thickness:1px;text-underline-offset:6px;transition:color 150ms;" style-hover="color:#C09070;">{{ i.label }}</a>
+        </sc-for>
+      </nav>
+      <div style="grid-column:4 / 10;">
+        <div id="d-set">
+          <h2 style="margin:0 0 32px;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:30px;line-height:36px;letter-spacing:-0.01em;">Set menus</h2>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <sc-for list="{{ setMenus }}" as="m" hint-placeholder-count="2">
+              <div style="background:#141414;padding:32px;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;">
+                <div>
+                  <h3 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:30px;line-height:36px;letter-spacing:-0.01em;">{{ m.name }}</h3>
+                  <p style="margin:8px 0 0;font-size:17px;line-height:28px;">{{ m.desc }}</p>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:flex-end;flex:none;">
+                  <span style="font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums tabular-nums;font-weight:300;font-size:56px;line-height:56px;">{{ m.price }}</span>
+                  <span style="margin-top:4px;font-size:15px;letter-spacing:0.01em;line-height:22px;">per person</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <p style="margin:24px 0 0;max-width:58ch;font-size:17px;line-height:28px;">Both can be made vegetarian or vegan. Kids' menu, up to 12 years, 179: grilled chicken fillet with rice or fries.</p>
+        </div>
+        <sc-for list="{{ groupA }}" as="s" hint-placeholder-count="3">
+          <div id="{{ s.idD }}" style="margin-top:96px;">
+            <h2 style="margin:0 0 16px;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:30px;line-height:36px;letter-spacing:-0.01em;">{{ s.title }}</h2>
+            <sc-for list="{{ s.dishes }}" as="d" hint-placeholder-count="6">
+              <div style="padding:20px 0;border-bottom:1px solid #262626;">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;">
+                  <span style="font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:24px;line-height:30px;">{{ d.name }}</span>
+                  <span style="font-size:17px;line-height:30px;font-weight:500;font-variant-numeric:tabular-nums;;min-width:64px;text-align:right;flex:none;">{{ d.price }}</span>
+                </div>
+                <sc-if value="{{ d.desc }}" hint-placeholder-val="{{ true }}">
+                  <div style="margin-top:4px;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;">{{ d.desc }}</div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <div style="position:relative;width:1440px;height:560px;">
+    <dc-import name="Film" film="v5_header_menu_events" caption="Drinks, the grill and mezze" position="50% 50%" lazy="{{ true }}" start-at="{{ 0 }}" loop-end="{{ 3.4 }}" style="position:absolute;inset:0;" hint-size="1440px,560px"></dc-import>
+  </div>
+
+  <section style="padding:192px 0;">
+    <div style="display:grid;grid-template-columns:repeat(12,90px);column-gap:24px;padding:0 48px;align-items:start;">
+      <nav style="grid-column:1 / 3;position:sticky;top:120px;display:flex;flex-direction:column;gap:8px;font-size:15px;letter-spacing:0.01em;line-height:22px;font-weight:500;">
+        <sc-for list="{{ indexB }}" as="i" hint-placeholder-count="9">
+          <a href="{{ i.href }}" style="align-self:flex-start;color:#F2F0EB;text-decoration:{{ i.deco }};text-decoration-color:#C09070;text-decoration-thickness:1px;text-underline-offset:6px;transition:color 150ms;" style-hover="color:#C09070;">{{ i.label }}</a>
+        </sc-for>
+      </nav>
+      <div style="grid-column:10 / 13;grid-row:1;position:relative;width:318px;height:565px;">
+        <dc-import name="Film" film="v2_table_bookings" caption="From the grill to the table" lazy="{{ true }}" start-at="{{ 14.5 }}" loop-end="{{ 18.5 }}" style="position:absolute;inset:0;" hint-size="318px,565px"></dc-import>
+      </div>
+      <div style="grid-column:4 / 10;grid-row:1;">
+        <sc-for list="{{ groupB }}" as="s" hint-placeholder-count="2">
+          <div id="{{ s.idD }}" style="margin-bottom:96px;">
+            <h2 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:30px;line-height:36px;letter-spacing:-0.01em;">{{ s.title }}</h2>
+            <sc-if value="{{ s.note }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:8px 0 0;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;">{{ s.note }}</p>
+            </sc-if>
+            <div style="margin-top:16px;">
+              <sc-for list="{{ s.dishes }}" as="d" hint-placeholder-count="5">
+                <div style="padding:20px 0;border-bottom:1px solid #262626;">
+                  <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;">
+                    <span style="font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:24px;line-height:30px;">{{ d.name }}</span>
+                    <span style="font-size:17px;line-height:30px;font-weight:500;font-variant-numeric:tabular-nums;;min-width:64px;text-align:right;flex:none;">{{ d.price }}</span>
+                  </div>
+                  <sc-if value="{{ d.desc }}" hint-placeholder-val="{{ true }}">
+                    <div style="margin-top:4px;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;">{{ d.desc }}</div>
+                  </sc-if>
+                </div>
+              </sc-for>
+            </div>
+            <sc-if value="{{ s.after }}" hint-placeholder-val="{{ false }}">
+              <p style="margin:24px 0 0;font-size:17px;line-height:28px;font-variant-numeric:tabular-nums;">{{ s.after }}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+
+        <div id="d-cocktails" style="margin-bottom:96px;">
+          <h2 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:30px;line-height:36px;letter-spacing:-0.01em;">Cocktails</h2>
+          <p style="margin:8px 0 0;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;">179 each</p>
+          <div style="margin-top:16px;display:grid;grid-template-columns:repeat(2,318px);column-gap:24px;">
+            <div>
+              <sc-for list="{{ cocktailsA }}" as="c" hint-placeholder-count="6">
+                <div style="padding:20px 0;border-bottom:1px solid #262626;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:24px;line-height:30px;">{{ c }}</div>
+              </sc-for>
+            </div>
+            <div>
+              <sc-for list="{{ cocktailsB }}" as="c" hint-placeholder-count="6">
+                <div style="padding:20px 0;border-bottom:1px solid #262626;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:24px;line-height:30px;">{{ c }}</div>
+              </sc-for>
+            </div>
+          </div>
+          <p style="margin:24px 0 0;font-size:17px;line-height:28px;">Bartender's choice without alcohol, 119</p>
+        </div>
+
+        <div id="d-wine" style="margin-bottom:96px;">
+          <h2 style="margin:0 0 16px;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:30px;line-height:36px;letter-spacing:-0.01em;">Wine from Lebanon</h2>
+          <sc-for list="{{ wines }}" as="w" hint-placeholder-count="7">
+            <div style="padding:20px 0;border-bottom:1px solid #262626;">
+              <div style="font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:24px;line-height:30px;">{{ w.name }}</div>
+              <sc-if value="{{ w.desc }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:4px;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;">{{ w.desc }}</div>
+              </sc-if>
+            </div>
+          </sc-for>
+          <p style="margin:24px 0 0;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;font-variant-numeric:tabular-nums;">Bottles mostly 599–699, by the glass 139–199</p>
+        </div>
+
+        <div id="d-takeaway">
+          <h2 style="margin:0 0 32px;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:30px;line-height:36px;letter-spacing:-0.01em;">Takeaway</h2>
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <sc-for list="{{ takeaway }}" as="m" hint-placeholder-count="2">
+              <div style="background:#141414;padding:32px;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;">
+                <div>
+                  <h3 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:30px;line-height:36px;letter-spacing:-0.01em;">{{ m.name }}</h3>
+                  <p style="margin:8px 0 0;font-size:17px;line-height:28px;">{{ m.desc }}</p>
+                </div>
+                <div style="display:flex;flex-direction:column;align-items:flex-end;flex:none;">
+                  <span style="font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums tabular-nums;font-weight:300;font-size:56px;line-height:56px;">{{ m.price }}</span>
+                  <span style="margin-top:4px;font-size:15px;letter-spacing:0.01em;line-height:22px;">per person</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="margin-top:32px;display:flex;flex-direction:column;align-items:flex-start;gap:24px;font-size:15px;letter-spacing:0.01em;line-height:22px;font-weight:500;">
+            <a href="{{ book }}" style="color:#C09070;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;transition:color 150ms;" style-hover="color:#F2F0EB;">Order takeaway</a>
+            <a href="#" style="color:#C09070;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;transition:color 150ms;" style-hover="color:#F2F0EB;">Download the menu as PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="ClosingBand" hint-size="1440px,560px"></dc-import>
+  <dc-import name="Footer" hint-size="1440px,620px"></dc-import>
+</main>
+</div>
+</sc-if>
+
+<sc-if value="{{ pubMob }}" hint-placeholder-val="{{ false }}">
+<div style="width:390px;zoom:{{ pubZoomM }};">
+<main data-screen-label="04 Menu mobile" style="position:relative;width:390px;background:#0A0A0A;color:#F2F0EB;">
+  <div style="width:100%;min-height:40px;padding:2px 20px;background:#141414;border-bottom:1px solid #262626;display:flex;align-items:center;justify-content:center;font-family:'Instrument Sans',sans-serif;font-size:15px;line-height:18px;letter-spacing:0.01em;color:#A6A6A6;text-align:center;text-wrap:balance;">Concept for OCCO Dinner Club. Not the live website; dates and some texts are examples.</div>
+  <dc-import name="Nav" tone="dark" mobile="{{ true }}" hint-size="390px,72px"></dc-import>
+  <section style="padding:48px 20px 0;">
+    <div style="font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;margin-bottom:16px;">Home / Menu</div>
+    <h1 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:44px;line-height:46px;letter-spacing:-0.025em;">Lebanese menu:<br>mezze, grill and wine</h1>
+    <p style="margin:32px 0 0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:22px;line-height:30px;text-wrap:pretty;">Every dish at OCCO in Malmö, made for sharing. Prices in SEK. Tell us about allergies when you book.</p>
+    <p style="margin:16px 0 0;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;">G gluten, L lactose, N nuts, V vegetarian, VG vegan</p>
+  </section>
+  <img src="assets/mezze_bord.jpg" alt="Mezze on a table at OCCO" style="margin-top:32px;width:390px;height:488px;object-fit:cover;display:block;">
+  <nav style="position:sticky;top:0;z-index:3;margin-top:32px;height:56px;padding:0 20px;display:flex;align-items:center;gap:24px;overflow-x:auto;white-space:nowrap;background:#0A0A0A;border-top:1px solid #262626;border-bottom:1px solid #262626;font-size:15px;letter-spacing:0.01em;line-height:22px;font-weight:500;scrollbar-width:none;">
+    <sc-for list="{{ indexM }}" as="i" hint-placeholder-count="9">
+      <a href="{{ i.href }}" style="flex:none;color:#F2F0EB;text-decoration:{{ i.deco }};text-decoration-color:#C09070;text-decoration-thickness:1px;text-underline-offset:6px;">{{ i.label }}</a>
+    </sc-for>
+  </nav>
+
+  <section style="padding:48px 20px 96px;">
+    <div id="m-set">
+      <h2 style="margin:0 0 24px;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:24px;line-height:30px;letter-spacing:-0.01em;">Set menus</h2>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <sc-for list="{{ setMenus }}" as="m" hint-placeholder-count="2">
+          <div style="background:#141414;padding:24px 20px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+            <div>
+              <h3 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:24px;line-height:30px;letter-spacing:-0.01em;">{{ m.name }}</h3>
+              <p style="margin:8px 0 0;font-size:17px;line-height:28px;">{{ m.desc }}</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;flex:none;">
+              <span style="font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums tabular-nums;font-weight:300;font-size:40px;line-height:40px;">{{ m.price }}</span>
+              <span style="margin-top:4px;font-size:15px;letter-spacing:0.01em;line-height:22px;">per person</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin:24px 0 0;font-size:17px;line-height:28px;">Both can be made vegetarian or vegan. Kids' menu, up to 12 years, 179: grilled chicken fillet with rice or fries.</p>
+    </div>
+    <sc-for list="{{ groupA }}" as="s" hint-placeholder-count="3">
+      <div id="{{ s.idM }}" style="margin-top:64px;">
+        <h2 style="margin:0 0 8px;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:24px;line-height:30px;letter-spacing:-0.01em;">{{ s.title }}</h2>
+        <sc-for list="{{ s.dishes }}" as="d" hint-placeholder-count="6">
+          <div style="padding:20px 0;border-bottom:1px solid #262626;">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;">
+              <span style="font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:22px;line-height:28px;">{{ d.name }}</span>
+              <span style="font-size:17px;line-height:28px;font-weight:500;font-variant-numeric:tabular-nums;;min-width:64px;text-align:right;flex:none;">{{ d.price }}</span>
+            </div>
+            <sc-if value="{{ d.desc }}" hint-placeholder-val="{{ true }}">
+              <div style="margin-top:4px;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;">{{ d.desc }}</div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </sc-for>
+  </section>
+
+  <div style="position:relative;width:390px;height:488px;">
+    <dc-import name="Film" film="v5_header_menu_events" caption="Drinks, the grill and mezze" position="50% 50%" lazy="{{ true }}" start-at="{{ 0 }}" loop-end="{{ 3.4 }}" style="position:absolute;inset:0;" hint-size="390px,488px"></dc-import>
+  </div>
+
+  <section style="padding:96px 20px;">
+    <div style="position:relative;width:350px;height:622px;margin-bottom:48px;">
+      <dc-import name="Film" film="v2_table_bookings" caption="From the grill to the table" lazy="{{ true }}" start-at="{{ 14.5 }}" loop-end="{{ 18.5 }}" style="position:absolute;inset:0;" hint-size="350px,622px"></dc-import>
+    </div>
+    <sc-for list="{{ groupB }}" as="s" hint-placeholder-count="2">
+      <div id="{{ s.idM }}" style="margin-bottom:64px;">
+        <h2 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:24px;line-height:30px;letter-spacing:-0.01em;">{{ s.title }}</h2>
+        <sc-if value="{{ s.note }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:8px 0 0;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;">{{ s.note }}</p>
+        </sc-if>
+        <div style="margin-top:8px;">
+          <sc-for list="{{ s.dishes }}" as="d" hint-placeholder-count="5">
+            <div style="padding:20px 0;border-bottom:1px solid #262626;">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;">
+                <span style="font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:22px;line-height:28px;">{{ d.name }}</span>
+                <span style="font-size:17px;line-height:28px;font-weight:500;font-variant-numeric:tabular-nums;;min-width:64px;text-align:right;flex:none;">{{ d.price }}</span>
+              </div>
+              <sc-if value="{{ d.desc }}" hint-placeholder-val="{{ true }}">
+                <div style="margin-top:4px;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;">{{ d.desc }}</div>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <sc-if value="{{ s.after }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:24px 0 0;font-size:17px;line-height:28px;">{{ s.after }}</p>
+        </sc-if>
+      </div>
+    </sc-for>
+    <div id="m-cocktails" style="margin-bottom:64px;">
+      <h2 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:24px;line-height:30px;letter-spacing:-0.01em;">Cocktails</h2>
+      <p style="margin:8px 0 8px;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;">179 each</p>
+      <sc-for list="{{ cocktails }}" as="c" hint-placeholder-count="12">
+        <div style="padding:16px 0;border-bottom:1px solid #262626;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:22px;line-height:28px;">{{ c }}</div>
+      </sc-for>
+      <p style="margin:24px 0 0;font-size:17px;line-height:28px;">Bartender's choice without alcohol, 119</p>
+    </div>
+    <div id="m-wine" style="margin-bottom:64px;">
+      <h2 style="margin:0 0 8px;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:24px;line-height:30px;letter-spacing:-0.01em;">Wine from Lebanon</h2>
+      <sc-for list="{{ wines }}" as="w" hint-placeholder-count="7">
+        <div style="padding:16px 0;border-bottom:1px solid #262626;">
+          <div style="font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:22px;line-height:28px;">{{ w.name }}</div>
+          <sc-if value="{{ w.desc }}" hint-placeholder-val="{{ false }}">
+            <div style="margin-top:4px;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;">{{ w.desc }}</div>
+          </sc-if>
+        </div>
+      </sc-for>
+      <p style="margin:24px 0 0;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;">Bottles mostly 599–699, by the glass 139–199</p>
+    </div>
+    <div id="m-takeaway">
+      <h2 style="margin:0 0 24px;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:24px;line-height:30px;letter-spacing:-0.01em;">Takeaway</h2>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <sc-for list="{{ takeaway }}" as="m" hint-placeholder-count="2">
+          <div style="background:#141414;padding:24px 20px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+            <div>
+              <h3 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:24px;line-height:30px;letter-spacing:-0.01em;">{{ m.name }}</h3>
+              <p style="margin:8px 0 0;font-size:17px;line-height:28px;">{{ m.desc }}</p>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;flex:none;">
+              <span style="font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums tabular-nums;font-weight:300;font-size:40px;line-height:40px;">{{ m.price }}</span>
+              <span style="margin-top:4px;font-size:15px;letter-spacing:0.01em;line-height:22px;">per person</span>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:24px;display:flex;flex-direction:column;align-items:flex-start;gap:16px;font-size:16px;line-height:24px;font-weight:500;">
+        <a href="{{ book }}" style="color:#C09070;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;">Order takeaway</a>
+        <a href="#" style="color:#C09070;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;">Download the menu as PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="ClosingBand" mobile="{{ true }}" hint-size="390px,480px"></dc-import>
+  <dc-import name="Footer" mobile="{{ true }}" hint-size="390px,900px"></dc-import>
+  <dc-import name="BookingBar" hint-size="390px,56px"></dc-import>
+</main>
+</div>
+</sc-if>
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Page extends DCLogic {
+  renderVals() {
+    const sections = [
+      ['set', 'Set menus'], ['cold', 'Cold mezze'], ['platters', 'Platters'], ['warm', 'Warm mezze'],
+      ['grill', 'From the grill'], ['desserts', 'Desserts'], ['cocktails', 'Cocktails'], ['wine', 'Wine from Lebanon'], ['takeaway', 'Takeaway'],
+    ];
+    const idx = (prefix, current) => sections.map(([id, label]) => ({ label, href: '#' + prefix + '-' + id, deco: id === current ? 'underline' : 'none' }));
+    const d = (name, price, desc) => ({ name, price, desc: desc || '' });
+    const groupA = [
+      { idD: 'd-cold', idM: 'm-cold', title: 'Cold mezze', dishes: [
+        d('Hommos', '99', 'Chickpea, sesame, cumin'), d('Labneh', '99'), d('Baba Ganoush', '99', 'Smoky aubergine, pomegranate'),
+        d('Moutabbal', '99'), d('Warak Inab', '109', 'Stuffed vine leaves, 3 pieces'), d('Djej Tarator', '109', 'Chicken, creamy sauce, pickled cucumber'),
+        d('Mhamara', '99', 'Chilli, walnut, red pepper. N'), d('Tabbouleh', '119'), d('Fattouch', '109'),
+        d('Kebbe Naje', '269', '150 g beef tartare, order 48 hours ahead') ] },
+      { idD: 'd-platters', idM: 'm-platters', title: 'Platters', dishes: [
+        d('Sojok', '119'), d('Kebbe', '109', '3 pieces'), d('Hommos Bel Lahme', '149'), d('Hommos Bel Sojok', '139'),
+        d('Sheikh El Mahshi', '149', 'Or veggie, 129'), d('Arayes Kafta', '119') ] },
+      { idD: 'd-warm', idM: 'm-warm', title: 'Warm mezze', dishes: [
+        d('Foul', '89'), d('Batata Hara', '99'), d('Falafel', '99', '3 pieces'), d('Halloumi Moklieh', '119', '3 pieces'),
+        d('Rakakat', '109', '3 pieces'), d('Fatayer', '109', '3 pieces'), d('Sambousik', '109', '3 pieces'), d('Jowaneh Moklieh', '119', '3 pieces') ] },
+    ];
+    const groupB = [
+      { idD: 'd-grill', idM: 'm-grill', title: 'From the grill', note: 'With rice and garlic mousse', after: '', dishes: [
+        d('Shish Tauk', '379', '300 g chicken'), d('Kastaletta Ghanam', '389', 'Lamb chops'), d('Fitile Ghanam', '399', 'Lamb fillet'),
+        d('Lahme Mishwie', '469', 'Beef fillet'), d('Mashawi Mshakal', '599', '450 g mixed grill') ] },
+      { idD: 'd-desserts', idM: 'm-desserts', title: 'Desserts', note: '', after: 'Bread 10, rice 20, garlic mousse 10, olives 59', dishes: [
+        d('Chocolate Fondant', '139'), d('Baklava Bel Bouza', '139', 'N, G, L'), d('Churros', '119') ] },
+    ];
+    const cocktails = ['Occo Gives You Wings', 'Lebanese Mule', 'Oriental Treat', 'Pinkyloma', 'Souk', 'Dirty Martini', 'Beirut Mist', 'Raspberry Kiss', 'Occo Daïquiri', 'Cameleon', 'Paprika Negroni', 'Arak'];
+    return {
+      indexA: idx('d', 'set'),
+      indexB: idx('d', 'grill'),
+      indexM: idx('m', 'set'),
+      groupA, groupB, cocktails,
+      cocktailsA: cocktails.slice(0, 6),
+      cocktailsB: cocktails.slice(6),
+      setMenus: [
+        { name: 'Full Lebanese Experience', desc: 'Mezze and a main course', price: '499' },
+        { name: 'Flavours of Lebanon', desc: 'A table of mezze', price: '389' },
+      ],
+      takeaway: [
+        { name: 'Full Lebanese Experience', desc: '10 mezze and a main course', price: '399' },
+        { name: 'Flavours of Lebanon', desc: '10 mezze', price: '289' },
+      ],
+      wines: [
+        { name: 'Chateau Musar', desc: '' }, { name: 'Chateau Ksara Reserve du Couvent', desc: '' }, { name: 'Chateau Heritage Family Reserve', desc: '' },
+        { name: 'Hochar Père & Fils', desc: '' }, { name: 'Chateau Ainata Blanc des Cèdres', desc: '' }, { name: 'Occo Red', desc: 'House' }, { name: 'Occo Rosé', desc: 'House' },
+      ],
+      book: '#',
+      closingFallback: !!this.props.closingFallback,
+    };
+  }
+}
+
+class Component extends Page {
+  constructor(p) { super(p); this.state = { ...(this.state || {}), pubTick: 0 }; }
+  componentDidMount() {
+    super.componentDidMount && super.componentDidMount();
+    this.pubMQ = window.matchMedia('(min-width: 900px)');
+    this.onPubResize = () => this.setState(s => ({ pubTick: (s.pubTick || 0) + 1 }));
+    this.pubCheck = () => { if (this.pubMQ.matches !== this.pubLastDesk || window.innerWidth !== this.pubLastW) this.onPubResize(); };
+    if (this.pubMQ.addEventListener) this.pubMQ.addEventListener('change', this.onPubResize); else this.pubMQ.addListener(this.onPubResize);
+    window.addEventListener('resize', this.onPubResize);
+    if (window.ResizeObserver) { this.pubRO = new ResizeObserver(this.pubCheck); this.pubRO.observe(document.documentElement); }
+    this.pubTimers = [0, 100, 300, 500, 1000, 2000].map(t => setTimeout(this.pubCheck, t));
+    this.onPubResize();
+  }
+  componentWillUnmount() {
+    super.componentWillUnmount && super.componentWillUnmount();
+    window.removeEventListener('resize', this.onPubResize);
+    if (this.pubMQ) { if (this.pubMQ.removeEventListener) this.pubMQ.removeEventListener('change', this.onPubResize); else this.pubMQ.removeListener(this.onPubResize); }
+    this.pubRO && this.pubRO.disconnect();
+    (this.pubTimers || []).forEach(clearTimeout);
+  }
+  renderVals() {
+    const w = window.innerWidth;
+    const desk = window.matchMedia ? window.matchMedia('(min-width: 900px)').matches : w >= 900;
+    this.pubLastDesk = desk; this.pubLastW = w;
+    return { ...super.renderVals(), pubDesk: desk, pubMob: !desk, pubZoomD: Math.min(1, w / 1440), pubZoomM: w / 390 };
+  }
+}
+</script>
+</body>
+</html>

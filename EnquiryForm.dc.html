@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+input.occo-date::-webkit-calendar-picker-indicator{opacity:0;cursor:pointer;}
+input.occo-date::-webkit-datetime-edit{color:inherit;}
+</style>
+</helmet>
+<div style="width:100%;font-family:'Instrument Sans',sans-serif;color:{{ ink }};">
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+  <div role="status" style="padding:48px 0;">
+    <p style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:28px;line-height:38px;">Thank you. A confirmation is on its way to your inbox</p>
+  </div>
+</sc-if>
+<sc-if value="{{ open }}" hint-placeholder-val="{{ true }}">
+<form noValidate="{{ true }}" onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:32px;margin:0;">
+  <fieldset style="margin:0;padding:0;border:0;">
+    <legend style="padding:0;margin-bottom:8px;font-size:15px;letter-spacing:0.01em;line-height:22px;">Occasion</legend>
+    <div style="border-top:1px solid {{ line }};">
+      <sc-for list="{{ occasions }}" as="o" hint-placeholder-count="4">
+        <label style="display:flex;align-items:center;gap:16px;min-height:52px;border-bottom:1px solid {{ hair }};cursor:pointer;font-size:17px;line-height:28px;">
+          <input type="radio" name="{{ radioName }}" value="{{ o.label }}" checked="{{ o.checked }}" onChange="{{ o.pick }}" style="position:absolute;opacity:0;width:1px;height:1px;margin:0;">
+          <span style="width:12px;height:12px;flex:none;border:1px solid {{ ink }};background:{{ o.fill }};"></span>
+          <span>{{ o.label }}</span>
+        </label>
+      </sc-for>
+    </div>
+    <sc-if value="{{ occasionError }}" hint-placeholder-val="{{ false }}">
+      <p style="margin:8px 0 0;font-size:15px;letter-spacing:0.01em;line-height:22px;color:{{ ink }};">Check this field</p>
+    </sc-if>
+  </fieldset>
+
+  <div style="display:grid;grid-template-columns:{{ cols }};column-gap:24px;row-gap:32px;">
+    <sc-for list="{{ fields }}" as="f" hint-placeholder-count="5">
+      <label style="display:flex;flex-direction:column;gap:4px;grid-column:{{ f.span }};">
+        <span style="font-size:15px;letter-spacing:0.01em;line-height:22px;">{{ f.label }}</span>
+        <span style="position:relative;display:block;">
+        <input type="{{ f.type }}" class="{{ f.cls }}" name="{{ f.name }}" value="{{ f.value }}" onChange="{{ f.change }}" onClick="{{ f.click }}" autoComplete="{{ f.auto }}" inputMode="{{ f.mode }}" style="width:100%;height:52px;padding:0 {{ fieldPad }};background:{{ field }};color-scheme:{{ scheme }};border:0;border-bottom:{{ f.border }};border-radius:0;font-family:'Instrument Sans',sans-serif;font-size:17px;line-height:28px;color:{{ f.color }};outline:none;cursor:{{ f.cursor }};" style-focus="border-bottom:2px solid {{ ink }};">
+        <sc-if value="{{ f.isDate }}" hint-placeholder-val="{{ false }}">
+          <sc-if value="{{ f.empty }}" hint-placeholder-val="{{ true }}">
+            <span aria-hidden="true" style="position:absolute;left:{{ fieldPad }};top:0;height:52px;display:flex;align-items:center;pointer-events:none;font-size:17px;line-height:28px;color:{{ muted }};">Choose a date</span>
+          </sc-if>
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" style="position:absolute;right:{{ glyphRight }};top:18px;pointer-events:none;display:block;"><rect x="1.5" y="3" width="13" height="11.5" fill="none" stroke="{{ muted }}" stroke-width="1"></rect><line x1="1.5" y1="6.5" x2="14.5" y2="6.5" stroke="{{ muted }}" stroke-width="1"></line><line x1="5" y1="1.5" x2="5" y2="4.5" stroke="{{ muted }}" stroke-width="1"></line><line x1="11" y1="1.5" x2="11" y2="4.5" stroke="{{ muted }}" stroke-width="1"></line></svg>
+        </sc-if>
+        </span>
+        <sc-if value="{{ f.error }}" hint-placeholder-val="{{ false }}">
+          <span style="font-size:15px;letter-spacing:0.01em;line-height:22px;color:{{ ink }};">Check this field</span>
+        </sc-if>
+      </label>
+    </sc-for>
+  </div>
+
+  <label style="display:flex;flex-direction:column;gap:4px;">
+    <span style="font-size:15px;letter-spacing:0.01em;line-height:22px;">Message</span>
+    <textarea name="message" rows="4" value="{{ message }}" onChange="{{ changeMessage }}" style="min-height:104px;padding:12px {{ fieldPad }};background:{{ field }};border:0;border-bottom:1px solid {{ line }};border-radius:0;resize:vertical;font-family:'Instrument Sans',sans-serif;font-size:17px;line-height:28px;color:{{ ink }};outline:none;" style-focus="border-bottom:2px solid {{ ink }};"></textarea>
+  </label>
+
+  <div>
+    <label style="display:flex;align-items:flex-start;gap:16px;cursor:pointer;font-size:15px;letter-spacing:0.01em;line-height:22px;">
+      <input type="checkbox" checked="{{ consent }}" onChange="{{ toggleConsent }}" style="position:absolute;opacity:0;width:1px;height:1px;margin:0;">
+      <span style="width:12px;height:12px;flex:none;margin-top:5px;border:1px solid {{ ink }};background:{{ consentFill }};"></span>
+      <span>I accept that OCCO stores my details to answer this enquiry. <a href="#" style="color:{{ link }};font-weight:500;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;" style-hover="color:{{ linkHover }};">Privacy</a></span>
+    </label>
+    <sc-if value="{{ consentError }}" hint-placeholder-val="{{ false }}">
+      <p style="margin:8px 0 0 28px;font-size:15px;letter-spacing:0.01em;line-height:22px;color:{{ ink }};">Check this field</p>
+    </sc-if>
+  </div>
+
+  <div>
+    <button type="submit" style="height:{{ btnH }};padding:0 24px;background:{{ btnBg }};color:{{ btnFg }};border:0;border-radius:0;font-family:'Instrument Sans',sans-serif;font-size:15px;line-height:22px;font-weight:500;letter-spacing:0.01em;cursor:pointer;transition:background 150ms;" style-hover="background:{{ btnHover }};" style-focus="outline:2px solid {{ ink }};outline-offset:3px;">Send enquiry</button>
+    <sc-if value="{{ concept }}" hint-placeholder-val="{{ false }}">
+      <p role="status" style="margin:12px 0 0;font-size:15px;letter-spacing:0.01em;line-height:22px;color:{{ ink }};">This is a concept, so the form is not connected.</p>
+    </sc-if>
+  </div>
+</form>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;798px&quot;,&quot;height&quot;:&quot;900px&quot;},&quot;mobile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;light&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;occasion&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;Dinner at OCCO&quot;,&quot;Spegelsalen&quot;,&quot;Wedding&quot;,&quot;Company event&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { occasion: this.props.occasion || '', date: '', guests: '', name: '', email: '', phone: '', message: '', consent: false, tried: false, sent: false };
+  uid = 'occ' + Math.random().toString(36).slice(2, 8);
+  set = k => e => this.setState({ [k]: e.target.value });
+  errors() {
+    const s = this.state;
+    return {
+      occasion: !s.occasion, date: !s.date, guests: !(Number(s.guests) > 0), name: !s.name.trim(),
+      email: !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(s.email), consent: !s.consent,
+    };
+  }
+  submit = e => {
+    e.preventDefault();
+    this.setState({ concept: true });
+  };
+  renderVals() {
+    const s = this.state, mobile = !!this.props.mobile;
+    const t = this.props.light
+      ? { muted: '#5C5C5C', ink: '#111111', line: '#5C5C5C', hair: 'rgba(17,17,17,0.12)', field: 'transparent', fieldPad: '0', scheme: 'light', link: '#111111', linkHover: '#5C5C5C', btnBg: '#111111', btnFg: '#F3F2EF', btnHover: '#5C5C5C' }
+      : { muted: '#A6A6A6', ink: '#F2F0EB', line: '#8C8C8C', hair: '#262626', field: '#262626', fieldPad: '16px', scheme: 'dark', link: '#C09070', linkHover: '#F2F0EB', btnBg: '#F2F0EB', btnFg: '#0A0A0A', btnHover: '#A6A6A6' };
+    const err = s.tried ? this.errors() : {};
+    const f = (name, label, type, span, auto, mode) => ({
+      name, label, type, span, auto, mode, value: s[name], change: this.set(name), error: !!err[name],
+      isDate: type === 'date', empty: !s[name], cls: type === 'date' ? 'occo-date' : '',
+      color: type === 'date' && !s[name] ? 'transparent' : t.ink, cursor: type === 'date' ? 'pointer' : 'text',
+      click: type === 'date' ? (ev => { try { ev.currentTarget.showPicker && ev.currentTarget.showPicker(); } catch (x) {} }) : undefined,
+      border: err[name] ? '2px solid ' + t.ink : '1px solid ' + t.line,
+    });
+    return {
+      ...t,
+      sent: false, open: true, concept: !!s.concept,
+      radioName: this.uid,
+      occasions: ['Dinner at OCCO', 'Spegelsalen', 'Wedding', 'Company event'].map(label => ({
+        label, checked: s.occasion === label, fill: s.occasion === label ? t.ink : 'transparent',
+        pick: () => this.setState({ occasion: label }),
+      })),
+      occasionError: !!err.occasion,
+      cols: mobile ? '1fr' : '1fr 1fr',
+      fields: [
+        f('date', 'Date', 'date', 'auto', 'off', 'none'),
+        f('guests', 'Guests', 'text', 'auto', 'off', 'numeric'),
+        f('name', 'Name', 'text', mobile ? 'auto' : '1 / -1', 'name', 'text'),
+        f('email', 'Email', 'email', 'auto', 'email', 'email'),
+        f('phone', 'Phone', 'tel', 'auto', 'tel', 'tel'),
+      ],
+      message: s.message, changeMessage: this.set('message'),
+      consent: s.consent, consentFill: s.consent ? t.ink : 'transparent',
+      toggleConsent: () => this.setState({ consent: !s.consent }),
+      consentError: !!err.consent,
+      btnH: mobile ? '48px' : '44px',
+      submit: this.submit,
+      glyphRight: this.props.light ? '0' : '16px',
+    };
+  }
+}
+</script>
+</body>
+</html>

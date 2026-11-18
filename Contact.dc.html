@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="robots" content="noindex, nofollow">
+<title>Contact and directions | OCCO Dinner Club, Malmö</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap">
+<style>
+html,body{margin:0;padding:0;background:#0A0A0A;-webkit-font-smoothing:antialiased;}
+*{box-sizing:border-box;}
+a{color:inherit;}
+a:hover{color:#C09070;}
+</style>
+</helmet>
+
+<div style="width:100%;overflow-x:hidden;font-family:'Instrument Sans',sans-serif;color:#111111;">
+
+<sc-if value="{{ pubDesk }}" hint-placeholder-val="{{ true }}">
+<div style="width:1440px;margin:0 auto;zoom:{{ pubZoomD }};">
+<main data-screen-label="11 Contact desktop" style="width:1440px;background:#0A0A0A;color:#F2F0EB;">
+  <div style="width:100%;height:40px;padding:0 48px;background:#141414;border-bottom:1px solid #262626;display:flex;align-items:center;justify-content:center;font-family:'Instrument Sans',sans-serif;font-size:15px;line-height:22px;letter-spacing:0.01em;color:#A6A6A6;text-align:center;">Concept for OCCO Dinner Club. Not the live website; dates and some texts are examples.</div>
+  <dc-import name="Nav" tone="dark" hint-size="1440px,88px"></dc-import>
+
+  <section style="padding:96px 0 0;">
+    <div style="display:grid;grid-template-columns:repeat(12,90px);column-gap:24px;padding:0 48px;">
+      <div style="grid-column:1 / 9;margin-bottom:24px;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;"><a href="Home.dc.html" style="color:#8C8C8C;text-decoration:none;" style-hover="color:#C09070;">Home</a> / Contact</div>
+      <h1 style="grid-column:1 / 9;margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:88px;line-height:88px;letter-spacing:-0.025em;">Contact OCCO<br>Dinner Club, Malmö</h1>
+      <p style="grid-column:1 / 7;margin:48px 0 0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:28px;line-height:38px;text-wrap:pretty;">We are at Kalendegatan 12 in central Malmö, in the Hippodromen building. Book online, or write to us.</p>
+    </div>
+  </section>
+
+  <section style="padding:192px 0 0;">
+    <div style="display:grid;grid-template-columns:repeat(12,90px);column-gap:24px;padding:0 48px;align-items:start;">
+      <div style="grid-column:1 / 6;">
+        <h2 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:64px;line-height:66px;letter-spacing:-0.02em;">Find us</h2>
+        <p style="margin:48px 0 0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:28px;line-height:38px;">Kalendegatan 12<br>211 35 Malmö</p>
+        <div style="margin-top:24px;display:flex;gap:32px;font-size:15px;letter-spacing:0.01em;line-height:22px;font-weight:500;">
+          <a href="https://maps.google.com/?q=Kalendegatan+12+Malmö" style="color:#C09070;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;transition:color 150ms;" style-hover="color:#F2F0EB;">Directions</a>
+          <a href="#" style="color:#C09070;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;transition:color 150ms;" style-hover="color:#F2F0EB;">info@occorestaurant.com</a>
+        </div>
+        <p style="margin:32px 0 0;font-size:15px;letter-spacing:0.01em;line-height:22px;">Spegelsalen: Kalendegatan 12B, spegelsalen@occorestaurant.com</p>
+      </div>
+      <div style="grid-column:7 / 13;">
+        <h2 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:64px;line-height:66px;letter-spacing:-0.02em;">Hours</h2>
+        <div style="margin-top:48px;border-top:1px solid #262626;">
+          <sc-for list="{{ hours }}" as="h" hint-placeholder-count="3">
+            <div style="padding:20px 0;border-bottom:1px solid #262626;display:flex;justify-content:space-between;align-items:baseline;gap:24px;font-family:'Newsreader',serif;font-optical-sizing:auto;font-size:24px;line-height:30px;">
+              <span style="font-variant-numeric:lining-nums;">{{ h.days }}</span>
+              <span style="font-variant-numeric:lining-nums tabular-nums;">{{ h.time }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:192px 0 0;">
+    <div style="padding:0 48px;">
+      <div style="position:relative;width:1344px;height:756px;">
+        <dc-import name="Film" film="v1_hero" caption="Kalendegatan 12, Malmö" lazy="{{ true }}" start-at="{{ 2 }}" loop-end="{{ 6 }}" style="position:absolute;inset:0;" hint-size="1344px,756px"></dc-import>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:192px 0 0;">
+    <div style="display:grid;grid-template-columns:repeat(12,90px);column-gap:24px;padding:0 48px;align-items:start;">
+      <div style="grid-column:1 / 5;">
+        <h2 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:64px;line-height:66px;letter-spacing:-0.02em;">Write to us</h2>
+        <div style="margin-top:32px;display:flex;flex-direction:column;align-items:flex-start;gap:16px;font-size:15px;letter-spacing:0.01em;line-height:22px;font-weight:500;">
+          <sc-for list="{{ waiter }}" as="w" hint-placeholder-count="3">
+            <a href="{{ book }}" style="color:#C09070;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;transition:color 150ms;" style-hover="color:#F2F0EB;">{{ w }}</a>
+          </sc-for>
+        </div>
+      </div>
+      <div style="grid-column:6 / 13;background:#141414;padding:48px;">
+        <dc-import name="EnquiryForm" hint-size="100%,860px"></dc-import>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:192px 0;">
+    <div style="display:grid;grid-template-columns:repeat(12,90px);column-gap:24px;padding:0 48px;align-items:start;">
+      <h2 style="grid-column:1 / 5;margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:64px;line-height:66px;letter-spacing:-0.02em;">Questions</h2>
+      <div style="grid-column:6 / 13;border-top:1px solid #262626;">
+        <sc-for list="{{ faq }}" as="q" hint-placeholder-count="5">
+          <div style="padding:32px 0;border-bottom:1px solid #262626;">
+            <h3 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:24px;line-height:30px;">{{ q.q }}</h3>
+            <p style="margin:12px 0 0;max-width:58ch;font-size:17px;line-height:28px;">{{ q.a }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="ClosingBand" hint-size="1440px,560px"></dc-import>
+  <dc-import name="Footer" hint-size="1440px,620px"></dc-import>
+</main>
+</div>
+</sc-if>
+
+<sc-if value="{{ pubMob }}" hint-placeholder-val="{{ false }}">
+<div style="width:390px;zoom:{{ pubZoomM }};">
+<main data-screen-label="12 Contact mobile" style="position:relative;width:390px;background:#0A0A0A;color:#F2F0EB;">
+  <div style="width:100%;min-height:40px;padding:2px 20px;background:#141414;border-bottom:1px solid #262626;display:flex;align-items:center;justify-content:center;font-family:'Instrument Sans',sans-serif;font-size:15px;line-height:18px;letter-spacing:0.01em;color:#A6A6A6;text-align:center;text-wrap:balance;">Concept for OCCO Dinner Club. Not the live website; dates and some texts are examples.</div>
+  <dc-import name="Nav" tone="dark" mobile="{{ true }}" hint-size="390px,72px"></dc-import>
+  <section style="padding:48px 20px 0;">
+    <div style="margin-bottom:16px;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#8C8C8C;">Home / Contact</div>
+    <h1 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:44px;line-height:46px;letter-spacing:-0.025em;">Contact OCCO<br>Dinner Club, Malmö</h1>
+    <p style="margin:32px 0 0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:22px;line-height:30px;text-wrap:pretty;">We are at Kalendegatan 12 in central Malmö, in the Hippodromen building. Book online, or write to us.</p>
+  </section>
+  <section style="padding:96px 20px 0;">
+    <h2 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:36px;line-height:40px;letter-spacing:-0.02em;">Find us</h2>
+    <p style="margin:32px 0 0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-size:22px;line-height:30px;">Kalendegatan 12<br>211 35 Malmö</p>
+    <div style="margin-top:16px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;font-size:16px;line-height:24px;font-weight:500;">
+      <a href="https://maps.google.com/?q=Kalendegatan+12+Malmö" style="color:#C09070;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;">Directions</a>
+      <a href="#" style="color:#C09070;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;">info@occorestaurant.com</a>
+    </div>
+    <p style="margin:24px 0 0;font-size:15px;letter-spacing:0.01em;line-height:22px;">Spegelsalen: Kalendegatan 12B, spegelsalen@occorestaurant.com</p>
+  </section>
+  <section style="padding:96px 20px 0;">
+    <h2 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:36px;line-height:40px;letter-spacing:-0.02em;">Hours</h2>
+    <div style="margin-top:32px;border-top:1px solid #262626;">
+      <sc-for list="{{ hours }}" as="h" hint-placeholder-count="3">
+        <div style="padding:16px 0;border-bottom:1px solid #262626;display:flex;flex-direction:column;gap:4px;font-family:'Newsreader',serif;font-optical-sizing:auto;font-size:22px;line-height:28px;">
+          <span style="font-variant-numeric:lining-nums;">{{ h.days }}</span>
+          <span style="font-family:'Instrument Sans',sans-serif;font-size:17px;line-height:28px;font-weight:500;font-variant-numeric:tabular-nums;">{{ h.time }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+  <div style="position:relative;margin-top:96px;width:390px;height:219px;">
+    <dc-import name="Film" film="v1_hero" caption="Kalendegatan 12, Malmö" lazy="{{ true }}" start-at="{{ 2 }}" loop-end="{{ 6 }}" style="position:absolute;inset:0;" hint-size="390px,219px"></dc-import>
+  </div>
+  <section style="padding:96px 0 0;">
+    <div style="padding:0 20px;">
+      <h2 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:36px;line-height:40px;letter-spacing:-0.02em;">Write to us</h2>
+      <div style="margin-top:24px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;font-size:16px;line-height:24px;font-weight:500;">
+        <sc-for list="{{ waiter }}" as="w" hint-placeholder-count="3">
+          <a href="{{ book }}" style="color:#C09070;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px;">{{ w }}</a>
+        </sc-for>
+      </div>
+    </div>
+    <div style="margin-top:32px;background:#141414;padding:32px 20px;">
+      <dc-import name="EnquiryForm" mobile="{{ true }}" hint-size="100%,1100px"></dc-import>
+    </div>
+  </section>
+  <section style="padding:96px 20px;">
+    <h2 style="margin:0 0 32px;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:36px;line-height:40px;letter-spacing:-0.02em;">Questions</h2>
+    <div style="border-top:1px solid #262626;">
+      <sc-for list="{{ faq }}" as="q" hint-placeholder-count="5">
+        <div style="padding:24px 0;border-bottom:1px solid #262626;">
+          <h3 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:400;font-size:22px;line-height:28px;">{{ q.q }}</h3>
+          <p style="margin:8px 0 0;font-size:17px;line-height:28px;">{{ q.a }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+  <dc-import name="ClosingBand" mobile="{{ true }}" hint-size="390px,480px"></dc-import>
+  <dc-import name="Footer" mobile="{{ true }}" hint-size="390px,900px"></dc-import>
+  <dc-import name="BookingBar" hint-size="390px,56px"></dc-import>
+</main>
+</div>
+</sc-if>
+
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Page extends DCLogic {
+  renderVals() {
+    return {
+      hours: [
+        { days: 'Tuesday to Thursday', time: '17:00–23:00' },
+        { days: 'Friday and Saturday', time: '17:00–00:00' },
+        { days: 'Sunday and Monday', time: 'Closed' },
+      ],
+      waiter: ['Book a table', 'Gift cards', 'Order takeaway'],
+      book: '#',
+      faq: [
+        { q: 'Do you have vegetarian and vegan food?', a: 'Yes. Many mezze are vegetarian or vegan, and both set menus can be made vegetarian or vegan.' },
+        { q: 'Can I book for a group?', a: 'Yes, book online or email info@occorestaurant.com.' },
+        { q: 'Do you do takeaway and catering?', a: 'Yes. Full Lebanese Experience 399 and Flavours of Lebanon 289 per person, delivered to the venue you choose.' },
+        { q: 'Can we book Spegelsalen for a wedding?', a: 'Yes. Stora salen seats up to 220. See spegelsalen.com.' },
+        { q: 'Where are you?', a: 'Kalendegatan 12 in central Malmö, in the Hippodromen building, with Spegelsalen upstairs.' },
+      ],
+      closingFallback: !!this.props.closingFallback,
+    };
+  }
+}
+
+class Component extends Page {
+  constructor(p) { super(p); this.state = { ...(this.state || {}), pubTick: 0 }; }
+  componentDidMount() {
+    super.componentDidMount && super.componentDidMount();
+    this.pubMQ = window.matchMedia('(min-width: 900px)');
+    this.onPubResize = () => this.setState(s => ({ pubTick: (s.pubTick || 0) + 1 }));
+    this.pubCheck = () => { if (this.pubMQ.matches !== this.pubLastDesk || window.innerWidth !== this.pubLastW) this.onPubResize(); };
+    if (this.pubMQ.addEventListener) this.pubMQ.addEventListener('change', this.onPubResize); else this.pubMQ.addListener(this.onPubResize);
+    window.addEventListener('resize', this.onPubResize);
+    if (window.ResizeObserver) { this.pubRO = new ResizeObserver(this.pubCheck); this.pubRO.observe(document.documentElement); }
+    this.pubTimers = [0, 100, 300, 500, 1000, 2000].map(t => setTimeout(this.pubCheck, t));
+    this.onPubResize();
+  }
+  componentWillUnmount() {
+    super.componentWillUnmount && super.componentWillUnmount();
+    window.removeEventListener('resize', this.onPubResize);
+    if (this.pubMQ) { if (this.pubMQ.removeEventListener) this.pubMQ.removeEventListener('change', this.onPubResize); else this.pubMQ.removeListener(this.onPubResize); }
+    this.pubRO && this.pubRO.disconnect();
+    (this.pubTimers || []).forEach(clearTimeout);
+  }
+  renderVals() {
+    const w = window.innerWidth;
+    const desk = window.matchMedia ? window.matchMedia('(min-width: 900px)').matches : w >= 900;
+    this.pubLastDesk = desk; this.pubLastW = w;
+    return { ...super.renderVals(), pubDesk: desk, pubMob: !desk, pubZoomD: Math.min(1, w / 1440), pubZoomM: w / 390 };
+  }
+}
+</script>
+</body>
+</html>

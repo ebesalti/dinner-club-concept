@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="position:relative;width:100%;font-family:'Instrument Sans',sans-serif;">
+<sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+  <sc-if value="{{ onDark }}" hint-placeholder-val="{{ true }}">
+    <header style="height:88px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:{{ darkBg }};border-bottom:{{ darkBorder }};">
+      <a href="Home.dc.html" style="display:flex;align-items:center;height:72px;"><img src="{{ logo }}" alt="OCCO Dinner Club" style="height:72px;width:auto;display:block;"></a>
+      <nav style="display:flex;align-items:center;gap:32px;font-size:15px;letter-spacing:0.01em;line-height:22px;font-weight:500;">
+        <sc-for list="{{ links }}" as="l" hint-placeholder-count="3">
+          <a href="{{ l.href }}" style="color:{{ l.color }};text-decoration:{{ l.deco }};text-decoration-thickness:1px;text-underline-offset:6px;text-decoration-color:{{ l.decoColor }};transition:color 150ms;" style-hover="color:#C09070;">{{ l.label }}</a>
+        </sc-for>
+        <button type="button" onClick="{{ openMenu }}" style="padding:0;background:none;border:0;color:#F2F0EB;font-family:'Instrument Sans',sans-serif;font-size:15px;letter-spacing:0.01em;line-height:22px;font-weight:500;cursor:pointer;transition:color 150ms;" style-hover="color:#C09070;">More</button>
+        <a href="{{ book }}" style="display:inline-flex;align-items:center;height:44px;padding:0 24px;background:#F2F0EB;color:#0A0A0A;font-weight:500;letter-spacing:0.01em;text-decoration:none;transition:background 150ms;" style-hover="background:#A6A6A6;color:#0A0A0A;" style-focus="outline:2px solid #F2F0EB;outline-offset:3px;">Book a table</a>
+      </nav>
+    </header>
+  </sc-if>
+  <sc-if value="{{ onLight }}" hint-placeholder-val="{{ false }}">
+    <header style="height:88px;padding:0 48px;display:flex;align-items:center;justify-content:space-between;background:#F3F2EF;border-bottom:1px solid rgba(17,17,17,0.12);">
+      <a href="Home.dc.html" style="display:flex;align-items:center;height:72px;"><img src="{{ logo }}" alt="OCCO Dinner Club" style="height:72px;width:auto;display:block;"></a>
+      <nav style="display:flex;align-items:center;gap:32px;font-size:15px;letter-spacing:0.01em;line-height:22px;font-weight:500;">
+        <sc-for list="{{ links }}" as="l" hint-placeholder-count="3">
+          <a href="{{ l.href }}" style="color:#111111;text-decoration:{{ l.deco }};text-decoration-thickness:1px;text-underline-offset:6px;text-decoration-color:#111111;transition:color 150ms;" style-hover="color:#5C5C5C;">{{ l.label }}</a>
+        </sc-for>
+        <button type="button" onClick="{{ openMenu }}" style="padding:0;background:none;border:0;color:#111111;font-family:'Instrument Sans',sans-serif;font-size:15px;letter-spacing:0.01em;line-height:22px;font-weight:500;cursor:pointer;transition:color 150ms;" style-hover="color:#5C5C5C;">More</button>
+        <a href="{{ book }}" style="display:inline-flex;align-items:center;height:44px;padding:0 24px;background:#111111;color:#F3F2EF;font-weight:500;letter-spacing:0.01em;text-decoration:none;transition:background 150ms;" style-hover="background:#5C5C5C;color:#F3F2EF;" style-focus="outline:2px solid #111111;outline-offset:3px;">Book a table</a>
+      </nav>
+    </header>
+  </sc-if>
+
+  <sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;z-index:50;background:#050505;color:#F2F0EB;display:flex;flex-direction:column;overflow:auto;">
+      <div style="height:88px;padding:0 48px;flex:none;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #262626;">
+        <a href="Home.dc.html" style="display:flex;align-items:center;height:72px;"><img src="{{ logo }}" alt="OCCO Dinner Club" style="height:72px;width:auto;display:block;"></a>
+        <div style="display:flex;align-items:center;gap:32px;font-size:15px;letter-spacing:0.01em;line-height:22px;font-weight:500;">
+          <button type="button" onClick="{{ closeMenu }}" style="flex:none;white-space:nowrap;padding:0;background:none;border:0;color:#F2F0EB;font-family:'Instrument Sans',sans-serif;font-size:15px;letter-spacing:0.01em;line-height:22px;font-weight:500;cursor:pointer;" style-hover="color:#C09070;">Close</button>
+          <a href="{{ book }}" style="flex:none;white-space:nowrap;display:inline-flex;align-items:center;height:44px;padding:0 24px;background:#F2F0EB;color:#0A0A0A;font-weight:500;letter-spacing:0.01em;text-decoration:none;" style-hover="background:#A6A6A6;color:#0A0A0A;">Book a table</a>
+        </div>
+      </div>
+      <div style="flex:1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;padding:96px 48px 64px;align-items:end;align-content:end;">
+        <nav style="grid-column:1 / 8;display:flex;flex-direction:column;">
+          <sc-for list="{{ allPages }}" as="p" hint-placeholder-count="9">
+            <a href="{{ p.href }}" style="font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:64px;line-height:66px;letter-spacing:-0.02em;white-space:nowrap;color:{{ p.color }};text-decoration:none;" style-hover="color:#C09070;">{{ p.label }}</a>
+          </sc-for>
+        </nav>
+        <div style="grid-column:9 / 13;padding-bottom:10px;display:flex;flex-direction:column;gap:4px;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#A6A6A6;font-variant-numeric:tabular-nums;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;color:#C09070;"><span style="width:8px;height:8px;box-sizing:border-box;border-radius:50%;border:1px solid #C09070;background:transparent;flex:none;"></span><span>Tonight, Sat 5 Dec: dancers and magic</span></div>
+          <span>Tue–Thu 17:00–23:00</span>
+          <span>Fri–Sat 17:00–00:00</span>
+          <span>Sun–Mon closed</span>
+          <span style="margin-top:12px;">Kalendegatan 12, 211 35 Malmö</span>
+          <a href="{{ book }}" style="margin-top:32px;align-self:flex-start;white-space:nowrap;display:inline-flex;align-items:center;height:48px;padding:0 24px;background:#F2F0EB;color:#0A0A0A;font-size:15px;line-height:22px;font-weight:500;letter-spacing:0.01em;text-decoration:none;" style-hover="background:#A6A6A6;color:#0A0A0A;">Book a table</a>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</sc-if>
+<sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+  <sc-if value="{{ onDark }}" hint-placeholder-val="{{ true }}">
+    <header style="height:72px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;background:{{ darkBg }};border-bottom:{{ darkBorder }};">
+      <a href="Home.dc.html" style="display:flex;align-items:center;height:56px;"><img src="{{ logo }}" alt="OCCO Dinner Club" style="height:56px;width:auto;display:block;"></a>
+      <div style="display:flex;align-items:center;gap:24px;">
+        <sc-if value="{{ showBook }}" hint-placeholder-val="{{ true }}"><a href="{{ book }}" style="display:inline-flex;align-items:center;height:48px;padding:0 24px;background:#F2F0EB;color:#0A0A0A;font-size:15px;line-height:20px;font-weight:500;letter-spacing:0.01em;text-decoration:none;" style-hover="background:#A6A6A6;color:#0A0A0A;">Book</a></sc-if>
+        <button type="button" onClick="{{ openMenu }}" style="min-height:48px;padding:0;background:none;border:0;color:#F2F0EB;font-family:'Instrument Sans',sans-serif;font-size:16px;line-height:24px;font-weight:500;cursor:pointer;" style-hover="color:#C09070;">More</button>
+      </div>
+    </header>
+  </sc-if>
+  <sc-if value="{{ onLight }}" hint-placeholder-val="{{ false }}">
+    <header style="height:72px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;background:#F3F2EF;border-bottom:1px solid rgba(17,17,17,0.12);">
+      <a href="Home.dc.html" style="display:flex;align-items:center;height:56px;"><img src="{{ logo }}" alt="OCCO Dinner Club" style="height:56px;width:auto;display:block;"></a>
+      <div style="display:flex;align-items:center;gap:24px;">
+        <a href="{{ book }}" style="display:inline-flex;align-items:center;height:48px;padding:0 24px;background:#111111;color:#F3F2EF;font-size:15px;line-height:20px;font-weight:500;letter-spacing:0.01em;text-decoration:none;" style-hover="background:#5C5C5C;color:#F3F2EF;">Book</a>
+        <button type="button" onClick="{{ openMenu }}" style="min-height:48px;padding:0;background:none;border:0;color:#111111;font-family:'Instrument Sans',sans-serif;font-size:16px;line-height:24px;font-weight:500;cursor:pointer;" style-hover="color:#5C5C5C;">More</button>
+      </div>
+    </header>
+  </sc-if>
+  <sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;width:100%;height:100vh;height:100dvh;z-index:50;background:#050505;color:#F2F0EB;display:flex;flex-direction:column;overflow:auto;">
+      <div style="height:72px;padding:0 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #262626;">
+        <span style="width:48px;"></span>
+        <img src="{{ logo }}" alt="OCCO Dinner Club" style="height:56px;width:auto;display:block;">
+        <button type="button" onClick="{{ closeMenu }}" style="width:48px;min-height:48px;padding:0;background:none;border:0;color:#F2F0EB;font-family:'Instrument Sans',sans-serif;font-size:16px;line-height:24px;font-weight:500;cursor:pointer;text-align:right;" style-hover="color:#C09070;">Close</button>
+      </div>
+      <nav style="padding:32px 20px 0;display:flex;flex-direction:column;">
+        <sc-for list="{{ allPages }}" as="p" hint-placeholder-count="8">
+          <a href="{{ p.href }}" style="font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:36px;line-height:46px;letter-spacing:-0.02em;color:{{ p.color }};text-decoration:none;" style-hover="color:#C09070;">{{ p.label }}</a>
+        </sc-for>
+      </nav>
+      <div style="margin-top:auto;padding:32px 20px 32px;display:flex;flex-direction:column;gap:4px;font-size:15px;letter-spacing:0.01em;line-height:22px;color:#A6A6A6;font-variant-numeric:tabular-nums;">
+        <a href="{{ book }}" style="margin-bottom:24px;width:100%;display:flex;align-items:center;justify-content:center;height:52px;background:#F2F0EB;color:#0A0A0A;font-size:15px;line-height:22px;font-weight:500;letter-spacing:0.01em;text-decoration:none;" style-hover="background:#A6A6A6;color:#0A0A0A;">Book a table</a>
+        <span>Tue–Thu 17:00–23:00</span>
+        <span>Fri–Sat 17:00–00:00</span>
+        <span>Sun–Mon closed</span>
+        <span style="margin-top:12px;">Kalendegatan 12, 211 35 Malmö</span>
+      </div>
+    </div>
+  </sc-if>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1440px&quot;,&quot;height&quot;:&quot;72px&quot;},&quot;tone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;film&quot;,&quot;dark&quot;,&quot;light&quot;],&quot;default&quot;:&quot;film&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;Menu&quot;,&quot;What's On&quot;,&quot;Private events&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;mobile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { open: false };
+  renderVals() {
+    const tone = this.props.tone || 'film';
+    const current = this.props.current || '';
+    const links = [
+      { label: 'Menu', href: 'Menu.dc.html' },
+      { label: "What's On", href: 'Whats On.dc.html' },
+      { label: 'Private events', href: 'Private Events.dc.html' },
+    ].map(l => ({ ...l, deco: l.label === current ? 'underline' : 'none', color: l.label === current && !this.props.currentCandle ? '#C09070' : '#F2F0EB', decoColor: this.props.currentCandle ? '#F2F0EB' : '#C09070' }));
+    return {
+      logo: (window.__resources && window.__resources.occo_logo) || 'assets/occo_logo.png',
+      desktop: !this.props.mobile,
+      mobile: !!this.props.mobile,
+      onDark: tone !== 'light',
+      onLight: tone === 'light',
+      darkBg: tone === 'dark' ? '#0A0A0A' : 'transparent',
+      darkBorder: tone === 'dark' ? '1px solid #262626' : '0',
+      links,
+      book: '#',
+      showBook: !this.props.hideBook,
+      open: this.state.open,
+      openMenu: () => this.setState({ open: true }),
+      closeMenu: () => this.setState({ open: false }),
+      allPages: [
+        { label: 'Home', href: 'Home.dc.html' },
+        { label: 'Menu', href: 'Menu.dc.html' },
+        { label: "What's On", href: 'Whats On.dc.html' },
+        { label: 'Private events', href: 'Private Events.dc.html' },
+        { label: 'About and awards', href: 'About.dc.html' },
+        { label: 'Contact', href: 'Contact.dc.html' },
+        { label: 'FAQ', href: 'Contact.dc.html' },
+        { label: 'Careers', href: '#' },
+        { label: 'Gift cards', href: '#' },
+      ].map(p => ({ ...p, color: p.label === current ? '#C09070' : '#F2F0EB' })),
+    };
+  }
+}
+</script>
+</body>
+</html>

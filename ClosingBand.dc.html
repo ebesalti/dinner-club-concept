@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<section style="position:relative;width:100%;overflow:hidden;background:#0A0A0A;color:#F2F0EB;font-family:'Instrument Sans',sans-serif;">
+<sc-if value="{{ desktop }}" hint-placeholder-val="{{ true }}">
+  <div style="position:relative;height:560px;overflow:hidden;">
+    <img src="{{ img }}" alt="" style="position:absolute;left:-306px;top:-400px;width:2270px;height:1277px;max-width:none;display:block;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0) 55%);"></div>
+    <div style="position:absolute;left:0;right:0;top:0;height:80px;background:linear-gradient(to bottom, #0A0A0A 0%, rgba(10,10,10,0) 100%);"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(to top, #0A0A0A 0%, rgba(10,10,10,0) 100%);"></div>
+    <div style="position:absolute;top:0;right:0;bottom:0;width:160px;background:linear-gradient(to left, #0A0A0A 0%, #0A0A0A 45%, rgba(10,10,10,0.6) 70%, rgba(10,10,10,0) 100%);"></div>
+    <div style="position:absolute;left:48px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:40px;">
+      <h2 style="margin:0;max-width:588px;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:64px;line-height:66px;letter-spacing:-0.02em;color:#F2F0EB;">A table at Kalendegatan&nbsp;12</h2>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <a href="{{ book }}" style="flex:none;display:flex;align-items:center;justify-content:center;height:52px;padding:0 28px;box-sizing:border-box;background:#F2F0EB;color:#050505;font-family:'Instrument Sans',sans-serif;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.01em;text-decoration:none;white-space:nowrap;transition:background 150ms;" style-hover="background:#A6A6A6;color:#050505;" style-focus="outline:2px solid #F2F0EB;outline-offset:3px;">Book a table</a>
+        <a href="{{ ghostHref }}" style="flex:none;display:inline-flex;align-items:center;height:52px;padding:0 28px;box-sizing:border-box;background:transparent;border:1px solid rgba(242,240,235,0.45);color:#F2F0EB;font-family:'Instrument Sans',sans-serif;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.01em;text-decoration:none;white-space:nowrap;transition:background 150ms,color 150ms;" style-hover="background:#F2F0EB;color:#0A0A0A;" style-focus="outline:2px solid #F2F0EB;outline-offset:3px;">{{ ghostLabel }}</a>
+      </div>
+    </div>
+  </div>
+</sc-if>
+<sc-if value="{{ mobile }}" hint-placeholder-val="{{ false }}">
+  <div style="position:relative;height:480px;overflow:hidden;">
+    <img src="{{ img }}" alt="" style="position:absolute;left:-282px;top:-60px;width:924px;height:520px;max-width:none;display:block;">
+    <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0) 60%);"></div>
+    <div style="position:absolute;left:0;right:0;top:0;height:80px;background:linear-gradient(to bottom, #0A0A0A 0%, rgba(10,10,10,0) 100%);"></div>
+    <div style="position:absolute;top:0;right:0;bottom:0;width:48px;background:linear-gradient(to left, #0A0A0A 0%, rgba(10,10,10,0.6) 50%, rgba(10,10,10,0) 100%);"></div>
+    <div style="position:absolute;left:20px;right:20px;bottom:40px;display:flex;flex-direction:column;gap:24px;">
+      <h2 style="margin:0;font-family:'Newsreader',serif;font-optical-sizing:auto;font-variant-numeric:lining-nums;font-weight:300;font-size:36px;line-height:40px;letter-spacing:-0.02em;color:#F2F0EB;">A table at<br>Kalendegatan&nbsp;12</h2>
+      <div style="display:flex;gap:12px;">
+        <a href="{{ book }}" style="flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;height:52px;padding:0 12px;box-sizing:border-box;background:#F2F0EB;color:#050505;font-family:'Instrument Sans',sans-serif;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.01em;text-decoration:none;white-space:nowrap;" style-hover="background:#A6A6A6;color:#050505;" style-focus="outline:2px solid #F2F0EB;outline-offset:3px;">Book a table</a>
+        <a href="{{ ghostHrefM }}" style="flex:1 1 0;min-width:0;display:flex;align-items:center;justify-content:center;height:52px;padding:0 12px;box-sizing:border-box;background:transparent;border:1px solid rgba(242,240,235,0.45);color:#F2F0EB;font-family:'Instrument Sans',sans-serif;font-size:16px;line-height:24px;font-weight:500;letter-spacing:0.01em;text-decoration:none;white-space:nowrap;" style-hover="background:#F2F0EB;color:#0A0A0A;" style-focus="outline:2px solid #F2F0EB;outline-offset:3px;">{{ ghostLabel }}</a>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;1440px&quot;,&quot;height&quot;:&quot;560px&quot;},&quot;mobile&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;ghost&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;whatson&quot;,&quot;menu&quot;,&quot;private&quot;],&quot;default&quot;:&quot;whatson&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const g = {
+      whatson: ['See what\'s on', 'Whats On.dc.html', 'Whats On.dc.html'],
+      menu: ['See the menu', 'Menu.dc.html', 'Menu.dc.html'],
+      private: ['See the menu', 'Menu.dc.html', 'Menu.dc.html'],
+    }[this.props.ghost || 'whatson'] || ['See what\'s on', 'Whats On.dc.html', 'Whats On.dc.html'];
+    return {
+      desktop: !this.props.mobile,
+      mobile: !!this.props.mobile,
+      img: (window.__resources && window.__resources.bokningsband) || 'assets/bokningsband_ljusbordet.jpg',
+      ghostLabel: g[0], ghostHref: g[1], ghostHrefM: g[2],
+      book: '#',
+    };
+  }
+}
+</script>
+</body>
+</html>
